@@ -1,6 +1,7 @@
 import {forwardRef} from 'react';
 import PropTypes from 'prop-types';
 import Rating from './Rating';
+import ThumbsUp from './ThumbsUp';
 import FormInput from './FormInput';
 import './static/css/Form.css';
 
@@ -17,14 +18,21 @@ const Form = forwardRef(({fields, initialData = {}, readonly = false}, ref) => {
           return (
             <div className="FormRow" key={id}>
               <span className="FormLabel">{label}</span>
-              {type === 'rating' ? (
-                <Rating
+              {type === 'ThumbsUp' ? (
+                <ThumbsUp
                   readonly={true}
                   defaultValue={parseInt(prefilled, 10)}
                 />
-              ) : (
+               ) :
+               type === 'rating' ? (
+                 <Rating
+                  readonly={true}
+                  defaultValue={parseInt(prefilled, 10)}
+                 />
+               ) :
+               (
                 <div>{prefilled}</div>
-              )}
+               )}
             </div>
           );
         }
@@ -50,7 +58,7 @@ Form.propTypes = {
   fields: PropTypes.objectOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(['textarea', 'input', 'year', 'suggest', 'rating']),
+        type: PropTypes.oneOf(['textarea', 'input', 'year', 'suggest', 'rating', 'ThumbsUp']),
       options: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,

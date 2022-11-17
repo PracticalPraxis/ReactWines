@@ -1,0 +1,20 @@
+.ThumbsUp {
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 28px;
+}
+
+.ThumbsUp.RatingReadonly {
+  cursor: auto;
+}
+
+.ThumbsUp span {
+  filter: grayscale(0.9);
+  display: inline-block;
+  width: 1.1em;
+}
+
+.ThumbsUp .ThumbsUpOn {
+  filter: grayscale(0);
+}

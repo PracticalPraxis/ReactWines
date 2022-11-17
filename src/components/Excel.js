@@ -11,6 +11,7 @@ import Actions from './Actions';
 import Dialog from './Dialog';
 import Form from './Form';
 import Rating from './Rating';
+import ThumbsUp from './ThumbsUp';
 
 function dataMangler(data, action, payload) {
   if (action === 'sort') {
@@ -70,7 +71,7 @@ function Excel({filter}) {
 
   function showEditor(e) {
     const config = e.target.dataset.schema;
-    if (!config || config === 'rating') {
+    if (!config || config === 'rating' || config === 'ThumbsUp') {
       return;
     }
     setEdit({
@@ -89,7 +90,7 @@ function Excel({filter}) {
         edit,
         value,
         updateData,
-        int: valueType === 'year' || valueType === 'rating',
+        int: valueType === 'year' || valueType === 'rating' || valueType === 'ThumbsUp',
       }),
     );
   }
@@ -223,6 +224,17 @@ function Excel({filter}) {
                         defaultValue={Number(content)}
                       />
                     );
+                  }
+
+                  else if (config.type === 'ThumbsUp') {
+                      content = (
+                          <ThumbsUp
+                              id={cell}
+                              readonly
+                              key={content}
+                              defaultValue={Number(content)}
+                          />
+                      );
                   }
 
                   return (

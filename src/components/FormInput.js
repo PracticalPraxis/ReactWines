@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Rating from './Rating';
+import ThumbsUp from './ThumbsUp';
 import Suggest from './Suggest';
 
 function FormInput({type = 'input', defaultValue = '', options = [], ...rest}) {
@@ -25,6 +26,13 @@ function FormInput({type = 'input', defaultValue = '', options = [], ...rest}) {
           {...rest}
           defaultValue={defaultValue ? parseInt(defaultValue, 10) : 0}
         />
+      );
+      case 'ThumbsUp':
+          return (
+              <ThumbsUp
+                  {...rest}
+                  defaultValue={defaultValue ? parseInt(defaultValue, 1) : 0}
+              />
       );
     case 'textarea':
       return <textarea defaultValue={defaultValue} {...rest} />;

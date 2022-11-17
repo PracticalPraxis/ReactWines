@@ -27,6 +27,12 @@ const schema = {
     show: true,
     samples: [3, 1, 5],
   },
+  ThumbsUp: {
+    label: 'Thumbs Up?',
+    type: 'ThumbsUp',
+    show: true,
+    samples: [0, 1],
+  },
   comments: {
     label: 'Comments',
     type: 'textarea',

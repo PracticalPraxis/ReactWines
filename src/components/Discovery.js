@@ -12,6 +12,7 @@ import Actions from './Actions';
 import Dialog from './Dialog';
 import Excel from './Excel';
 import DataContext from '../contexts/DataContext';
+import ThumbsUp from './ThumbsUp';
 
 import schema from '../config/schema';
 
@@ -112,6 +113,14 @@ function Discovery() {
       </p>
       <p>
         Read-only: <Rating readonly={true} defaultValue={3} />
+      </p>
+
+      <h2>ThumbsUp</h2>
+      <p>
+          No initial value: <ThumbsUp />
+      </p>
+      <p>
+          Initial value 1: <ThumbsUp defaultValue={1} />
       </p>
 
       <h2>Suggest</h2>
